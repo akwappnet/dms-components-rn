@@ -1,13 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
-import { TechniciansClockContext } from "../Applications/TechniciansClocking/Context/TechniciansClockContext";
 import { Dmslabel } from "./Dms/Dmslabel";
 
-export function Jobheader() {
-  const { technicianStatus, selectedJob, setSelectedJob } = useContext(
-    TechniciansClockContext
-  );
-
+export function Jobheader({ technicianStatus, selectedJob, setSelectedJob }) {
   return (
     <View
       style={{
