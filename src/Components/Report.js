@@ -37,12 +37,12 @@ export function Report({ reportData, reportFunction, reportKey }) {
             justifyContent: "space-between",
           }}
         >
-          {reportData?.map((i) => (
+          {reportData?.map((i,index) => (
             <TouchableWithoutFeedback
               key={i[reportKey]}
               onPress={() => reportFunction(i)}
             >
-              <View style={{ flex: 1, flexDirection: "row" }}>
+              <View key={index} style={{ flex: 1, flexDirection: "row" }}>
                 {this.createTable(i)}
               </View>
             </TouchableWithoutFeedback>
