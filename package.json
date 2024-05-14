@@ -11,17 +11,17 @@
   },
   "main": "src/Components/Index/Index.js",
   "dependencies": {
-    "react-native-gesture-handler": "*",
+    "react-native-gesture-handler": "~2.9.0",
     "@react-native-async-storage/async-storage": "*",
     "@react-native-community/datetimepicker": "*",
     "@react-navigation/drawer": "*",
     "react-native-device-info": "*",
     "react-native-dropdown-picker": "*",
     "react-native-network-info": "*",
-    "react-native-reanimated": "*",
+    "react-native-reanimated": "~2.14.4",
     "react-native-webview": "*",
     "react": "18.2.0",
-    "react-native": "0.73.7"
+    "react-native": "0.73.7" 
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

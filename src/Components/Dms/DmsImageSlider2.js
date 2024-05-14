@@ -20,7 +20,7 @@ export function DmsImageSlider2({ images }) {
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}></View>
       <View style={{ flex: 1 }}>
-        <View style={{ flex: 0.2, alignItems: "center", paddingTop: 5 }}>
+        <View style={{ flex: 1, alignItems: "center", paddingTop: 5 }}>
           <ScrollView
             horizontal
             showsHorizontalScrollIndicator={false}
