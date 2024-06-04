@@ -1,6 +1,11 @@
 {
   "name": "dms_components_rn",
-  "version": "0.0.7",
+  "version": "0.1.4",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
   "private": false,
   "scripts": {
     "android": "react-native run-android",
@@ -8,9 +13,9 @@
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest",
+    "build": "rimraf dist && tsc"
   },
-  "main": "src/Components/Index/Index.js",
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-native-community/datetimepicker": "7.6.4",
@@ -46,6 +51,7 @@
     "jest": "^29.6.3",
     "prettier": "2.8.8",
     "react-test-renderer": "18.2.0",
+    "rimraf": "^5.0.7",
     "typescript": "5.0.4"
   },
   "engines": {

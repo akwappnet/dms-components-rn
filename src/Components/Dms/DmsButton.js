@@ -1,6 +1,6 @@
 import { View, Pressable, Image } from "react-native";
 import * as Images from "../../Images/Index";
-import { Dmslabel } from "./../Index/Index";
+import { Dmslabel } from "../../Index";
 import DmsTheme from "./../../Utils/DmsTheme";
 
 export function DmsButton({ props }) {
