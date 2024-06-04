@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { calendar } from "../../Images/Index";
-const DatePickerComponent = ({ initialDate, OnDateChanged }) => {
+export const DmsDate = ({ initialDate, OnDateChanged }) => {
   const [date, setDate] = useState(initialDate ? new Date(initialDate) : null);
   const [dateText, setDateText] = useState("");
   const [show, setShow] = useState(false);
@@ -102,5 +102,3 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
-
-export default DatePickerComponent;

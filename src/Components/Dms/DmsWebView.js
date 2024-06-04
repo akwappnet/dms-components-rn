@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, Text } from "react-native";
 import { WebView } from "react-native-webview";
 import { NavigatorService } from "../../API/Navigator";
 import { Dms } from "../../Utils/Dms";
-const DmsWebView = ({ Routine, Data, HandleEvent }) => {
+export const DmsWebView = ({ Routine, Data, HandleEvent }) => {
   const [url, seturl] = useState(null);
   console.log(url);
   useEffect(() => {
@@ -64,5 +64,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default DmsWebView;

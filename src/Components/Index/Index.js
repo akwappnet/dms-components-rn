@@ -16,9 +16,9 @@ import { Dmslabel } from "../Dms/Dmslabel";
 import { DmsImageSlider } from "../Dms/DmsImageSlider";
 import { DmsImageSlider2 } from "../Dms/DmsImageSlider2";
 import { DmsKeyboardAvoidingView } from "../Dms/DmsKeyboardAvoidingView";
-import DmsWebView from "../Dms/DmsWebView";
-import DmsDate from "../Dms/DmsDate";
-import DmsCheckBox from "../Dms/DmsCheckBox";
+import { DmsDate } from "../Dms/DmsDate";
+import { DmsWebView } from "../Dms/DmsWebView";
+import { DmsCheckBox } from "../Dms/DmsCheckBox";
 export {
   Header,
   HeaderRight,
@@ -39,6 +39,6 @@ export {
   DmsImageSlider2,
   DmsKeyboardAvoidingView,
   DmsWebView,
-  DmsDate,
   DmsCheckBox,
+  DmsDate,
 };

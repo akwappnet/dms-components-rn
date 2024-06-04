@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-const DmsCheckBox = ({ label, initialCheck = false, onCheckChange }) => {
+export const DmsCheckBox = ({ label, initialCheck = false, onCheckChange }) => {
   const [checked, setChecked] = useState(initialCheck);
 
   const handlePress = () => {
@@ -49,5 +49,3 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
 });
-
-export default DmsCheckBox;
