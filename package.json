@@ -1,11 +1,7 @@
 {
   "name": "dms_components_rn",
-  "version": "0.1.4",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist/"
-  ],
+  "version": "0.1.5",
+  "main": "src/index.js",
   "private": false,
   "scripts": {
     "android": "react-native run-android",
