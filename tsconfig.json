@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "esModuleInterop": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "outDir": "lib",
+    "strict": true,
+    "jsx": "react-native",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types", "src/typings"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
