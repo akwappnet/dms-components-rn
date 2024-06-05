@@ -1,3 +1,17 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "compilerOptions": {
+    "allowJs": false,
+    "esModuleInterop": true,
+    "target": "es2016",
+    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "outDir": "lib",
+    "strict": true,
+    "jsx": "react-native",
+    "moduleResolution": "node",
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
