@@ -1,6 +1,6 @@
 {
   "name": "dms-components-rn",
-  "version": "0.2.2",
+  "version": "0.2.5",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
@@ -12,12 +12,11 @@
   },
   "peerDependencies": {
     "react": "^17.0.0",
-    "react-native": "^0.64.0"
+    "react-native": "^0.74.2"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "latest",
     "@react-native-community/datetimepicker": "latest",
-    "@react-navigation/drawer": "latest",
     "react-native-device-info": "latest",
     "react-native-dropdown-picker": "latest",
     "react-native-gesture-handler": "latest",
@@ -26,8 +25,8 @@
     "react-native-webview": "latest"
   },
   "devDependencies": {
-    "typescript": "^4.0.0",
     "@types/react": "^17.0.0",
-    "@types/react-native": "^0.64.0"
+    "@types/react-native": "^0.64.0",
+    "typescript": "^4.0.0"
   }
 }

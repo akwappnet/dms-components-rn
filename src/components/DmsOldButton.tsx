@@ -7,7 +7,7 @@ interface ButtonProps {
   onPress: () => void;
 }
 
-const DmsButton: React.FC<ButtonProps> = ({ title, onPress }) => (
+const DmsOldButton: React.FC<ButtonProps> = ({ title, onPress }) => (
   <TouchableOpacity style={styles.button} onPress={onPress}>
     <Text style={styles.text}>{title}</Text>
   </TouchableOpacity>
@@ -26,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DmsButton;
+export default DmsOldButton;

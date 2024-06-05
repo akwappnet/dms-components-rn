@@ -1,3 +1,5 @@
-1. run "npm run build" command after changes
-2. And before "npm login" and "npm publish"
-3. Make sure new version is different than current version before publish
+Added DMS Components :  
+DmsradioBtn, Dmstext, Dmslabel, DmsImageSlide, DmsImageSlider2, DmsKeyboardAvoidingView, DmsDate, DmsWebView, DmsCheckBox, Dmsbranch, DmsButton, DmsLookup
+
+Added Some Other Components :
+Header, HeaderRight, Jobheader, JobHeader2, JobList, Radiobtn, Report, Status
