@@ -1,11 +1,16 @@
 {
   "name": "dms-components-rn",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "lib/"
+    "lib/",
+    "assets"
   ],
+  "license": "MIT",
+  "description": "DMS component used for specifically designed for DMS Applications to leverage the development to other projects.",
+  "author": "Wappnet Systems Pvt Ltd",
+  "homepage": "https://github.com/akwappnet/dms_components_rn#readme",
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
@@ -28,5 +33,16 @@
     "@types/react": "^17.0.0",
     "@types/react-native": "^0.64.0",
     "typescript": "^4.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akwappnet/dms_components_rn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akwappnet/dms_components_rn/issues"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": []
 }

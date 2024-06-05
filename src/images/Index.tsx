@@ -1,20 +1,20 @@
-var logo = require("./logo.jpg");
-var navlogo = require("./navlogo.png");
-var navlogosimple = require("./navlogosimple.png");
-var sign = require("./sign.png");
-var techIcon = require("./techIcon.png");
-var clockIcon = require("./clock.png");
-var clockOffIcon = require("./clockOff.png");
-var requestSymbol = require("./requestSymbol.png");
-var downArrow = require("./downArrow.png");
-var plusSymbol = require("./plusSymbol.png");
-var sendSymbol = require("./sendSymbol.png");
-var signoutSymbol = require("./signoutSymbol.png");
-var settingsSymbol = require("./settingsSymbol.png");
-var commsSymbol = require("./commsSymbol.png");
-var commsSymbolNot = require("./commsSymbolNot.png");
-var cameraSymbol = require("./camera.png");
-var calendar = require("./calendar.png");
+var logo = require("../../assets/logo.jpg");
+var navlogo = require("../../assets/navlogo.png");
+var navlogosimple = require("../../assets/navlogosimple.png");
+var sign = require("../../assets/sign.png");
+var techIcon = require("../../assets/techIcon.png");
+var clockIcon = require("../../assets/clock.png");
+var clockOffIcon = require("../../assets/clockOff.png");
+var requestSymbol = require("../../assets/requestSymbol.png");
+var downArrow = require("../../assets/downArrow.png");
+var plusSymbol = require("../../assets/plusSymbol.png");
+var sendSymbol = require("../../assets/sendSymbol.png");
+var signoutSymbol = require("../../assets/signoutSymbol.png");
+var settingsSymbol = require("../../assets/settingsSymbol.png");
+var commsSymbol = require("../../assets/commsSymbol.png");
+var commsSymbolNot = require("../../assets/commsSymbolNot.png");
+var cameraSymbol = require("../../assets/camera.png");
+var calendar = require("../../assets/calendar.png");
 
 export {
   logo,

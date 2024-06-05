@@ -1,10 +1,10 @@
 import { Image } from "react-native";
-var logo = require("../Images/navlogosimple.png");
+import { navlogosimple } from "../images/Index";
 
 const HeaderRight: React.FC = () => {
   return (
     <Image
-      source={logo}
+      source={navlogosimple}
       style={{
         height: "50%",
         width: "50%",
