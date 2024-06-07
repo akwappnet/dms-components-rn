@@ -3,6 +3,7 @@ import { HeaderRight } from "../HeaderRight";
 import { Jobheader } from "../Jobheader";
 import { JobHeader2 } from "../JobHeader2";
 import { JobList } from "../JobList";
+import { Loader } from "../Loader";
 import { Radiobtn } from "../Radiobtn";
 import { Report } from "../Report";
 import { Status } from "../Status";
@@ -19,6 +20,9 @@ import { DmsKeyboardAvoidingView } from "../Dms/DmsKeyboardAvoidingView";
 import DmsWebView from "../Dms/DmsWebView";
 import DmsDate from "../Dms/DmsDate";
 import DmsCheckBox from "../Dms/DmsCheckBox";
+import DmsTextWithImage from "../Dms/DmsTextWithImage";
+import DmsDropdownPicker from "../Dms/DmsDropdown";
+import DropdownWithCamera from "../Dms/DmsDropdownwithCamera";
 export {
   Header,
   HeaderRight,
@@ -26,6 +30,7 @@ export {
   JobHeader2,
   JobList,
   Radiobtn,
+  Loader,
   Report,
   Status,
   Timer,
@@ -41,4 +46,7 @@ export {
   DmsWebView,
   DmsDate,
   DmsCheckBox,
+  DmsTextWithImage,
+  DmsDropdownPicker,
+  DropdownWithCamera,
 };
