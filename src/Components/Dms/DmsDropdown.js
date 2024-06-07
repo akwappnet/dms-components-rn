@@ -1,8 +1,10 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
-import SelectDropdown from "react-native-select-dropdown";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React from 'react';
+import { View, StyleSheet, Text, Image } from 'react-native';
+import {
+  widthPercentageToDP,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen';
+import SelectDropdown from 'react-native-select-dropdown';
 
 const DmsDropdownPicker = ({
   items,
@@ -23,20 +25,18 @@ const DmsDropdownPicker = ({
           <View
             style={[
               styles.dropdownButtonStyle,
-              { width: isCamera ? wp("70%") : wp("86%") },
+              { width: isCamera ? wp('70%') : wp('86%') },
             ]}
           >
-            {selectedItem && (
-              <MaterialCommunityIcons
-                name={selectedItem.icon}
-                style={styles.dropdownButtonIconStyle}
-              />
-            )}
             <Text style={styles.dropdownButtonTxtStyle}>
               {(selectedItem && selectedItem.label) || placeholder}
             </Text>
-            <MaterialCommunityIcons
-              name={isOpened ? "chevron-up" : "chevron-down"}
+            <Image
+              source={
+                isOpened
+                  ? require('../../Images/up-arrow.png')
+                  : require('../../Images/down-arrow.png')
+              }
               style={styles.dropdownButtonArrowStyle}
             />
           </View>
@@ -48,13 +48,9 @@ const DmsDropdownPicker = ({
           <View
             style={{
               ...styles.dropdownItemStyle,
-              ...(isSelected && { backgroundColor: "#D2D9DF" }),
+              ...(isSelected && { backgroundColor: '#D2D9DF' }),
             }}
           >
-            <MaterialCommunityIcons
-              name={item.icon}
-              style={styles.dropdownItemIconStyle}
-            />
             <View style={[styles.textContainer, isLastItem && styles.noBorder]}>
               <Text style={styles.dropdownItemTxtStyle}>{item.label}</Text>
             </View>
@@ -70,46 +66,47 @@ const DmsDropdownPicker = ({
 const styles = StyleSheet.create({
   dropdownButtonStyle: {
     height: 50,
-    backgroundColor: "#ffffff",
+    backgroundColor: '#ffffff',
     borderRadius: 12,
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 12,
     marginTop: 10,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   dropdownButtonTxtStyle: {
     flex: 1,
     fontSize: 16,
-    fontWeight: "500",
-    color: "#151E26",
-    textAlign: "center",
+    fontWeight: '500',
+    color: '#151E26',
+    textAlign: 'center',
   },
   dropdownButtonArrowStyle: {
-    fontSize: 28,
+    height: widthPercentageToDP('7%'),
+    width: widthPercentageToDP('7%'),
   },
   dropdownButtonIconStyle: {
     fontSize: 28,
     marginRight: 8,
   },
   dropdownMenuStyle: {
-    backgroundColor: "#E9ECEF",
+    backgroundColor: '#E9ECEF',
     borderRadius: 8,
   },
   dropdownItemStyle: {
-    width: "100%",
-    flexDirection: "row",
+    width: '100%',
+    flexDirection: 'row',
     paddingHorizontal: 12,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingVertical: 1,
   },
   dropdownItemTxtStyle: {
     flex: 1,
     fontSize: 16,
-    fontWeight: "500",
-    color: "#151E26",
+    fontWeight: '500',
+    color: '#151E26',
     padding: 15,
   },
   dropdownItemIconStyle: {
@@ -119,7 +116,7 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     borderBottomWidth: 1,
-    borderBottomColor: "#151E2610",
+    borderBottomColor: '#151E2610',
   },
   noBorder: {
     borderBottomWidth: 0,

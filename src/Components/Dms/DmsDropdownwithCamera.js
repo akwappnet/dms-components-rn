@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   View,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
   Image,
-} from "react-native";
-import { AntDesign } from "@expo/vector-icons";
-import DmsDropdownPicker from "./DmsDropdown";
+} from 'react-native';
+import DmsDropdownPicker from './DmsDropdown';
 import {
   heightPercentageToDP as hp,
+  widthPercentageToDP,
   widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
-import { launchCamera, launchImageLibrary } from "react-native-image-picker";
-import Modal from "react-native-modal";
-import { Dmslabel } from "./Dmslabel";
+} from 'react-native-responsive-screen';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import Modal from 'react-native-modal';
+import { Dmslabel } from './Dmslabel';
 
 const DropdownWithCamera = ({
   items,
@@ -26,7 +26,7 @@ const DropdownWithCamera = ({
   onImagesChange,
   images,
 }) => {
-  const [selectedImages, setSelectedImages] = useState(images || "");
+  const [selectedImages, setSelectedImages] = useState(images || '');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
@@ -37,17 +37,17 @@ const DropdownWithCamera = ({
 
   const openCamera = () => {
     const options = {
-      mediaType: "photo",
+      mediaType: 'photo',
       quality: 1,
     };
 
     launchCamera(options, (response) => {
       if (response.didCancel) {
-        console.log("User cancelled image picker");
+        console.log('User cancelled image picker');
       } else if (response.errorMessage) {
-        console.log("ImagePicker Error: ", response.errorMessage);
+        console.log('ImagePicker Error: ', response.errorMessage);
       } else {
-        console.log("Camera opened successfully");
+        console.log('Camera opened successfully');
         const newUri = response.assets[0].uri;
         const updatedUris = selectedImages
           ? `${selectedImages}, ${newUri}`
@@ -61,22 +61,22 @@ const DropdownWithCamera = ({
 
   const openGallery = () => {
     const options = {
-      mediaType: "photo",
+      mediaType: 'photo',
       quality: 1,
       selectionLimit: 0,
     };
 
     launchImageLibrary(options, (response) => {
       if (response.didCancel) {
-        console.log("User cancelled image picker");
+        console.log('User cancelled image picker');
       } else if (response.errorMessage) {
-        console.log("ImagePicker Error: ", response.errorMessage);
+        console.log('ImagePicker Error: ', response.errorMessage);
       } else {
-        const newUris = response.assets.map((asset) => asset.uri).join(", ");
+        const newUris = response.assets.map((asset) => asset.uri).join(', ');
         let updatedUris = selectedImages
           ? `${selectedImages}, ${newUris}`
           : newUris;
-        updatedUris = updatedUris.replace(/(^\s*,)|(,\s*$)/g, "").trim();
+        updatedUris = updatedUris.replace(/(^\s*,)|(,\s*$)/g, '').trim();
         setSelectedImages(updatedUris);
         onImagesChange(updatedUris);
         setIsModalVisible(false);
@@ -90,9 +90,9 @@ const DropdownWithCamera = ({
 
   const removeImage = (uri) => {
     const updatedUrisArray = selectedImages
-      .split(", ")
+      .split(', ')
       .filter((imageUri) => imageUri !== uri);
-    const updatedUris = updatedUrisArray.join(", ");
+    const updatedUris = updatedUrisArray.join(', ');
     setSelectedImages(updatedUris);
     onImagesChange(updatedUris);
   };
@@ -110,7 +110,7 @@ const DropdownWithCamera = ({
         />
         <ScrollView horizontal style={styles.imageContainer}>
           {selectedImages ? (
-            selectedImages.split(", ").map((uri, index) => (
+            selectedImages.split(', ').map((uri, index) => (
               <View key={index} style={styles.imageWrapper}>
                 <View style={styles.subImageContainer}>
                   {uri && <Image source={{ uri }} style={styles.image} />}
@@ -119,7 +119,10 @@ const DropdownWithCamera = ({
                       style={styles.removeIcon}
                       onPress={() => removeImage(uri)}
                     >
-                      <AntDesign name="closecircle" size={20} color="#ffffff" />
+                      <Image
+                        source={require('../../Images/close.png')}
+                        style={styles.closeIconStyle}
+                      />
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -132,13 +135,16 @@ const DropdownWithCamera = ({
                 style={[
                   styles.image,
                   {
-                    backgroundColor: "#007bff",
-                    alignItems: "center",
-                    justifyContent: "center",
+                    backgroundColor: '#007bff',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                   },
                 ]}
               >
-                <AntDesign name="camera" size={40} color="white" />
+                <Image
+                  source={require('../../Images/camera.png')}
+                  style={styles.iconStyle}
+                />
               </TouchableOpacity>
             </View>
           )}
@@ -151,12 +157,12 @@ const DropdownWithCamera = ({
             >
               <Dmslabel
                 {...{
-                  Textstr: "Take Photo",
+                  Textstr: 'Take Photo',
                   fontSize: 16,
-                  fontWeight: "600",
-                  color: "#ffffff",
+                  fontWeight: '600',
+                  color: '#ffffff',
                   marginBottom: 0,
-                  textAlign: "center",
+                  textAlign: 'center',
                   marginTop: 0,
                 }}
               ></Dmslabel>
@@ -167,12 +173,12 @@ const DropdownWithCamera = ({
             >
               <Dmslabel
                 {...{
-                  Textstr: "Choose from Gallery",
+                  Textstr: 'Choose from Gallery',
                   fontSize: 16,
-                  fontWeight: "600",
-                  color: "#ffffff",
+                  fontWeight: '600',
+                  color: '#ffffff',
                   marginBottom: 0,
-                  textAlign: "center",
+                  textAlign: 'center',
                   marginTop: 0,
                 }}
               ></Dmslabel>
@@ -183,12 +189,12 @@ const DropdownWithCamera = ({
             >
               <Dmslabel
                 {...{
-                  Textstr: "Cancel",
+                  Textstr: 'Cancel',
                   fontSize: 16,
-                  fontWeight: "600",
-                  color: "#ffffff",
+                  fontWeight: '600',
+                  color: '#ffffff',
                   marginBottom: 0,
-                  textAlign: "center",
+                  textAlign: 'center',
                   marginTop: 0,
                 }}
               ></Dmslabel>
@@ -202,48 +208,48 @@ const DropdownWithCamera = ({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   cameraIcon: {
     marginLeft: 0,
   },
   dropdownContainer: {
-    width: wp("10%"),
+    width: wp('10%'),
   },
   modalContent: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 22,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 4,
-    borderColor: "rgba(0, 0, 0, 0.1)",
+    borderColor: 'rgba(0, 0, 0, 0.1)',
   },
   modeloptions: {
-    width: wp("87%"),
-    height: hp("6%"),
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#007bff",
+    width: wp('87%'),
+    height: hp('6%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#007bff',
     borderRadius: 5,
   },
   imageContainer: {
     marginLeft: 10,
   },
   imageWrapper: {
-    position: "relative",
+    position: 'relative',
     margin: 0,
   },
   subImageContainer: {
     position: 'relative',
     // width: wp("28%"),
     // height: hp("15%"),
-    paddingVertical: 10
+    paddingVertical: 10,
   },
   image: {
-    width: wp("20%"),
-    height: hp("9%"),
+    width: wp('20%'),
+    height: hp('9%'),
     borderRadius: 10,
     marginHorizontal: 0,
   },
@@ -253,9 +259,20 @@ const styles = StyleSheet.create({
     right: -5,
     zIndex: 1,
   },
+  iconStyle: {
+    height: widthPercentageToDP('10%'),
+    width: widthPercentageToDP('12%'),
+    tintColor: '#FFF',
+  },
+  closeIconStyle: {
+    height: widthPercentageToDP('4%'),
+    width: widthPercentageToDP('4%'),
+  },
   removeIcon: {
     borderRadius: 12,
-    padding: 2,
+    padding: 3,
+    justifyContent: 'center',
+    backgroundColor: '#FFF',
   },
 });
 

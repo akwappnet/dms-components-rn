@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   View,
   StyleSheet,
   TouchableOpacity,
   ScrollView,
   Image,
-} from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+} from 'react-native';
 import {
   heightPercentageToDP as hp,
+  widthPercentageToDP,
   widthPercentageToDP as wp,
-} from "react-native-responsive-screen";
-import DmsCheckBox from "./DmsCheckBox";
-import { Dmslabel } from "./Dmslabel";
-import { launchCamera, launchImageLibrary } from "react-native-image-picker";
-import Modal from "react-native-modal";
+} from 'react-native-responsive-screen';
+import DmsCheckBox from './DmsCheckBox';
+import { Dmslabel } from './Dmslabel';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import Modal from 'react-native-modal';
 
 const DmsTextWithImage = ({
   text,
@@ -24,7 +24,7 @@ const DmsTextWithImage = ({
   onImagesChange,
 }) => {
   const [isChecked, setIsChecked] = useState(initialCheck || false);
-  const [selectedImages, setSelectedImages] = useState(images || "");
+  const [selectedImages, setSelectedImages] = useState(images || '');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleCheckChange = (newCheckState) => {
@@ -39,17 +39,17 @@ const DmsTextWithImage = ({
 
   const openCamera = () => {
     const options = {
-      mediaType: "photo",
+      mediaType: 'photo',
       quality: 1,
     };
 
     launchCamera(options, (response) => {
       if (response.didCancel) {
-        console.log("User cancelled image picker");
+        console.log('User cancelled image picker');
       } else if (response.errorMessage) {
-        console.log("ImagePicker Error: ", response.errorMessage);
+        console.log('ImagePicker Error: ', response.errorMessage);
       } else {
-        console.log("Camera opened successfully");
+        console.log('Camera opened successfully');
         const newUri = response.assets[0].uri;
         const updatedUris = selectedImages
           ? `${selectedImages}, ${newUri}`
@@ -63,22 +63,22 @@ const DmsTextWithImage = ({
 
   const openGallery = () => {
     const options = {
-      mediaType: "photo",
+      mediaType: 'photo',
       quality: 1,
       selectionLimit: 0,
     };
 
     launchImageLibrary(options, (response) => {
       if (response.didCancel) {
-        console.log("User cancelled image picker");
+        console.log('User cancelled image picker');
       } else if (response.errorMessage) {
-        console.log("ImagePicker Error: ", response.errorMessage);
+        console.log('ImagePicker Error: ', response.errorMessage);
       } else {
-        const newUris = response.assets.map((asset) => asset.uri).join(", ");
+        const newUris = response.assets.map((asset) => asset.uri).join(', ');
         let updatedUris = selectedImages
           ? `${selectedImages}, ${newUris}`
           : newUris;
-        updatedUris = updatedUris.replace(/(^\s*,)|(,\s*$)/g, "").trim();
+        updatedUris = updatedUris.replace(/(^\s*,)|(,\s*$)/g, '').trim();
         setSelectedImages(updatedUris);
         onImagesChange(updatedUris);
         setIsModalVisible(false);
@@ -92,9 +92,9 @@ const DmsTextWithImage = ({
 
   const removeImage = (uri) => {
     const updatedUrisArray = selectedImages
-      .split(", ")
+      .split(', ')
       .filter((imageUri) => imageUri !== uri);
-    const updatedUris = updatedUrisArray.join(", ");
+    const updatedUris = updatedUrisArray.join(', ');
     setSelectedImages(updatedUris);
     onImagesChange(updatedUris);
   };
@@ -103,9 +103,9 @@ const DmsTextWithImage = ({
     <View style={styles.container}>
       <View
         style={{
-          flexDirection: "row",
-          alignItems: "center",
-          backgroundColor: "white",
+          flexDirection: 'row',
+          alignItems: 'center',
+          backgroundColor: 'white',
           borderRadius: 10,
           paddingLeft: 10,
           paddingVertical: 5,
@@ -120,9 +120,9 @@ const DmsTextWithImage = ({
           {...{
             Textstr: text,
             fontSize: 18,
-            color: "#000000",
+            color: '#000000',
             marginBottom: 0,
-            textAlign: "left",
+            textAlign: 'left',
             marginTop: 0,
           }}
         />
@@ -130,14 +130,17 @@ const DmsTextWithImage = ({
       <View style={{ flex: 2.9 }}>
         <ScrollView horizontal style={styles.imageContainer}>
           {selectedImages
-            ? selectedImages.split(", ").map((uri, index) => (
+            ? selectedImages.split(', ').map((uri, index) => (
                 <View key={index} style={styles.imageWrapper}>
                   {uri && <Image source={{ uri }} style={styles.image} />}
                   <TouchableOpacity
                     style={styles.removeIcon}
                     onPress={() => removeImage(uri)}
                   >
-                    <AntDesign name="closecircle" size={24} color="#ffffff" />
+                    <Image
+                      source={require('../../Images/close.png')}
+                      style={styles.closeIconStyle}
+                    />
                   </TouchableOpacity>
                 </View>
               ))
@@ -148,13 +151,16 @@ const DmsTextWithImage = ({
                     style={[
                       styles.image,
                       {
-                        backgroundColor: "#007bff",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        backgroundColor: '#007bff',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                       },
                     ]}
                   >
-                    <AntDesign name="camera" size={40} color="white" />
+                    <Image
+                      source={require('../../Images/camera.png')}
+                      style={styles.iconStyle}
+                    />
                   </TouchableOpacity>
                 </View>
               )}
@@ -168,12 +174,12 @@ const DmsTextWithImage = ({
           >
             <Dmslabel
               {...{
-                Textstr: "Take Photo",
+                Textstr: 'Take Photo',
                 fontSize: 16,
-                fontWeight: "600",
-                color: "#ffffff",
+                fontWeight: '600',
+                color: '#ffffff',
                 marginBottom: 0,
-                textAlign: "center",
+                textAlign: 'center',
                 marginTop: 0,
               }}
             ></Dmslabel>
@@ -184,12 +190,12 @@ const DmsTextWithImage = ({
           >
             <Dmslabel
               {...{
-                Textstr: "Choose from Gallery",
+                Textstr: 'Choose from Gallery',
                 fontSize: 16,
-                fontWeight: "600",
-                color: "#ffffff",
+                fontWeight: '600',
+                color: '#ffffff',
                 marginBottom: 0,
-                textAlign: "center",
+                textAlign: 'center',
                 marginTop: 0,
               }}
             ></Dmslabel>
@@ -200,12 +206,12 @@ const DmsTextWithImage = ({
           >
             <Dmslabel
               {...{
-                Textstr: "Cancel",
+                Textstr: 'Cancel',
                 fontSize: 16,
-                fontWeight: "600",
-                color: "#ffffff",
+                fontWeight: '600',
+                color: '#ffffff',
                 marginBottom: 0,
-                textAlign: "center",
+                textAlign: 'center',
                 marginTop: 0,
               }}
             ></Dmslabel>
@@ -218,51 +224,61 @@ const DmsTextWithImage = ({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     borderRadius: 10,
     marginTop: 10,
-    backgroundColor: "white",
+    backgroundColor: 'white',
   },
   iconContainer: {
-    left: wp("2%"),
+    left: wp('2%'),
   },
   text: {
     marginRight: 10,
     fontSize: 16,
-    fontWeight: "400",
+    fontWeight: '400',
   },
   modalContent: {
-    backgroundColor: "white",
+    backgroundColor: 'white',
     padding: 22,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 4,
-    borderColor: "rgba(0, 0, 0, 0.1)",
+    borderColor: 'rgba(0, 0, 0, 0.1)',
   },
   modeloptions: {
-    width: wp("87%"),
-    height: hp("6%"),
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#007bff",
+    width: wp('87%'),
+    height: hp('6%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#007bff',
     borderRadius: 5,
   },
   imageContainer: {
-    height: hp("9%"),
+    height: hp('9%'),
   },
   imageWrapper: {
-    position: "relative",
+    position: 'relative',
   },
   image: {
-    width: wp("20%"),
-    height: hp("9%"),
+    width: wp('20%'),
+    height: hp('9%'),
     borderRadius: 10,
   },
   removeIcon: {
-    position: "absolute",
+    borderRadius: 12,
+    position: 'absolute',
     top: -2,
-    right: -6,
-    zIndex: 1,
+    right: -4,
+    backgroundColor: '#FFF',
+  },
+  closeIconStyle: {
+    height: widthPercentageToDP('4%'),
+    width: widthPercentageToDP('4%'),
+  },
+  iconStyle: {
+    height: widthPercentageToDP('10%'),
+    width: widthPercentageToDP('12%'),
+    tintColor: '#FFF',
   },
 });
 
