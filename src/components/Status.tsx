@@ -14,6 +14,7 @@ const Status: React.FC<TechnicianStatus> = (
 ) => {
   const onPressFunc = (status: TechnicianStatus) => {
     // Add your press function logic here
+    console.log("onPressFunc", status);
   };
 
   return (

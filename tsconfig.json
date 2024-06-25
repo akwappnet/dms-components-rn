@@ -1,18 +1,33 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
-    "allowJs": false,
-    "esModuleInterop": true,
-    "target": "es2016",
-    "module": "commonjs",
-    "forceConsistentCasingInFileNames": true,
-    "declaration": true,
-    "outDir": "lib",
+    "lib": ["ES2015"],
+    "target": "ES2015",
+    "module": "ES2020",
     "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./lib",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "sourceMap": true,
     "jsx": "react-native",
-    "moduleResolution": "node",
+    "noImplicitAny": false,
     "skipLibCheck": true,
-    "typeRoots": ["node_modules/@types", "src/typings"]
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": ["src", "assets"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*",
+    "type/declarations.d.ts"
+  ],
+  "exclude": ["lib"],
+  "typeRoots": ["../node_modules/@types/index.d.ts"]
 }

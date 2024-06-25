@@ -1,0 +1,45 @@
+import { NativeModules, Platform } from 'react-native';
+
+const LINKING_ERROR =
+  `The package 'dms-components-rn' doesn't seem to be linked. Make sure: \n\n` +
+  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
+  '- You rebuilt the app after installing the package\n' +
+  '- You are not using Expo Go\n';
+
+const DmsComponentsRn = NativeModules.DmsComponentsRn
+  ? NativeModules.DmsComponentsRn
+  : new Proxy(
+      {},
+      {
+        get() {
+          throw new Error(LINKING_ERROR);
+        },
+      }
+    );
+
+export function multiply(a: number, b: number): Promise<number> {
+  return DmsComponentsRn.multiply(a, b);
+}
+
+// src/index.ts
+export { default as DmsOldButton } from './components/DmsOldButton';
+export { default as Header } from './components/Header';
+export { default as HeaderRight } from './components/HeaderRight';
+export { default as Jobheader } from './components/Jobheader';
+export { default as JobHeader2 } from './components/JobHeader2';
+export { default as JobList } from './components/JobList';
+export { default as Radiobtn } from './components/Radiobtn';
+export { default as Report } from './components/Report';
+export { default as Status } from './components/Status';
+export { default as Dmsbranch } from './components/dms/Dmsbranch';
+export { default as DmsButton } from './components/dms/DmsButton';
+export { default as DmsLookup } from './components/dms/DmsLookup';
+export { default as DmsradioBtn } from './components/dms/DmsradioBtn';
+export { default as Dmstext } from './components/dms/Dmstext';
+export { default as Dmslabel } from './components/dms/Dmslabel';
+export { default as DmsImageSlider } from './components/dms/DmsImageSlider';
+export { default as DmsImageSlider2 } from './components/dms/DmsImageSlider2';
+export { default as DmsKeyboardAvoidingView } from './components/dms/DmsKeyboardAvoidingView';
+export { default as DmsDate } from './components/dms/DmsDate';
+export { default as DmsWebView } from './components/dms/DmsWebView';
+export { default as DmsCheckBox } from './components/dms/DmsCheckBox';

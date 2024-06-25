@@ -1,36 +1,35 @@
-import { View } from "react-native";
-import { useEffect, useState } from "react";
-import { Dms } from "../../utils/Dms";
-import DmsLookup from "./DmsLookup";
+import {View} from 'react-native';
+import {useEffect, useState} from 'react';
+import {Dms} from '../../utils/Dms';
+import DmsLookup from './DmsLookup';
 
 const Dmsbranch: React.FC = () => {
-  const [userID, setUserID] = useState<string>("");
-  const [branch, setBranch] = useState<string>("");
+  const [userID, setUserID] = useState<string>('');
+  const [branch, setBranch] = useState<string>('');
 
   useEffect(() => {
     getUser();
   }, []);
 
   const getUser = async () => {
-    setUserID((await Dms.user()) ?? "");
-    setBranch((await Dms.getBranch()) ?? "1");
+    setUserID((await Dms.user()) ?? '');
+    setBranch((await Dms.getBranch()) ?? '1');
   };
 
-  const setSelectedBranch = (branchdata: { branch: string } | null) => {
+  const setSelectedBranch = (branchdata: {branch: string} | null) => {
     if (branchdata !== null) {
       Dms.setBranch(branchdata.branch);
     }
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      {userID !== "" && branch !== "" && (
+    <View style={{flex: 1}}>
+      {userID !== '' && branch !== '' && (
         <DmsLookup
           file={userID}
           recordID="BRANCHES.ALL"
           getValue={setSelectedBranch}
-          currentValue={parseInt(branch)}
-        ></DmsLookup>
+          currentValue={parseInt(branch)}></DmsLookup>
       )}
     </View>
   );

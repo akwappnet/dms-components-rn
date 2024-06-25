@@ -45,12 +45,10 @@ export class Dms {
   };
 
   static getData = async (key: string) => {
-    try {
-      const value = await AsyncStorage.getItem("@" + key);
-      if (value !== null) {
-        return value;
-      }
-    } catch (e) {
+    const value = await AsyncStorage.getItem("@" + key);
+    if (value !== null) {
+      return value;
+    } else {
       return "";
     }
   };

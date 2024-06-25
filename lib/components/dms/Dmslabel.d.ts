@@ -1,4 +1,5 @@
 /// <reference types="react" />
+/// <reference types="react" />
 interface DmslabelProps {
     Textstr: string;
     fontWeight?: "normal" | "bold" | "light" | "medium";

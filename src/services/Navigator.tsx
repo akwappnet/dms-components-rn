@@ -42,7 +42,6 @@ export class NavigatorService {
     reportName: string,
     paramsList: string[]
   ): Promise<any> {
-    let ii: number = paramsList.length;
     let paramString: string = "";
     paramsList.forEach((param: string) => {
       paramString += param + ",";
@@ -112,12 +111,11 @@ export class NavigatorService {
     base64: string
   ): Promise<void> {
     const apikey: string = await Dms.GetAPIKeyBasic();
-    const serverAddress: string = (await Dms.getServerAddress()) ?? "";
     const sessionID: string = (await Dms.getData("sessionID")) ?? "";
 
     const data: string = `aloadofjunk_${apikey}~${sessionID}~${filePath}~${base64}`;
 
-    const response: Response = await fetch(
+    await fetch(
       "https://services-pool.dmservices.co.uk/DmsNavigator.NavigatorWebService.svc/WriteFileBase64",
       {
         method: "POST",
@@ -149,6 +147,7 @@ export class NavigatorService {
       const jsonValuetxt: string = await response.text();
       return jsonValuetxt;
     } else {
+      return null;
     }
   }
 

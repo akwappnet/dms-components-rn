@@ -14,12 +14,6 @@ interface DmsImageSlider2Props {
 const DmsImageSlider2: FC<DmsImageSlider2Props> = ({ images }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
-  const renderItem = ({ item }: { item: { Image: string } }) => (
-    <View style={styles.item}>
-      <Image source={{ uri: item.Image }} style={styles.image} />
-    </View>
-  );
-
   return (
     <View style={{ flex: 1 }}>
       <View style={{ flex: 1 }}></View>

@@ -132,7 +132,7 @@ export const DmsImageSlider: React.FC<DmsImageSliderProps> = ({ images }) => {
           </View>
           <View style={{ flex: 5 }}>
             <GestureHandlerRootView style={{ flex: 1 }}>
-              <PinchZoom uri={images[selectedIndex]?.Image}></PinchZoom>
+              <PinchZoom uri={images[selectedIndex]?.Image ?? ""}></PinchZoom>
             </GestureHandlerRootView>
           </View>
           <View style={{ flex: 1, alignItems: "center" }}>

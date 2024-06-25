@@ -1,4 +1,4 @@
-import { Text, Dimensions, TextStyle } from "react-native";
+import { Text, Dimensions } from "react-native";
 import DmsTheme from "../../utils/DmsTheme";
 
 const windowWidth: number = Dimensions.get("window").width;
